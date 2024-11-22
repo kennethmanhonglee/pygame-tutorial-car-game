@@ -1,0 +1,82 @@
+'''
+Follow https://coderslegacy.com/python/python-pygame-tutorial/
+'''
+
+# # import pygame module
+# import pygame
+# from pygame.locals import *  # import pygame.locals module
+# import sys
+
+'''
+initiate game engine
+must happen before any pygame code
+'''
+# pygame.init()
+
+'''
+The Game Loop
+game events will occur, update, and get drawn to the surface
+the game loop will iterate until an event of type QUIT occurs
+
+while True:
+  if event is quit:
+    quit the game
+  game logic
+
+  pygame.display.update() - update the display of the game last
+
+pygame.display.update() - this actually updates the game window / surfac
+with changes made in this iteration of the game loop
+'''
+
+'''
+quitting the game loop
+use pygame.quit() AND sys.exit() - if we dont call pygame.quit, IDE might hang
+
+# i saw people do running = True, then while running
+while True:
+  # this for loop can probably be made into a quit function
+  for event in pygame.event.get():
+    if event.type == QUIT:  # QUIT is actually pygame.locals.QUIT
+      pygame.quit()
+      sys.exit()
+  
+  pygame.display.update()
+'''
+
+'''
+event objects in pygame
+when the user performs some action - click a mouse, press a button, etc
+pygame.event.get() - returns a list of pygame.event.Event objects
+  the type attribute tells us what the event is
+  we can also make custom events
+'''
+
+'''
+Creating a display screen
+we need to create a window of a fixed size:
+  pass a tuple with width and height into display.set_mode()
+
+DISPLAYSURF = pygame.display.set_mode((300, 300))  # this makes a 300x300 pixels screen
+(0,0) coordinate is top left corner
+'''
+
+'''
+pygame colors
+use RGB system - pygame.Color(0,0,0)  # pass in RGB values to make color objects
+'''
+
+'''
+frames per second
+pygame does not limit fps by default. we would want to set it, so the loop doesnt run infinitely
+
+FPS = pygame.time.Clock()
+FPS.tick(60)  # 60fps
+'''
+
+'''
+Rects and Collision Detection
+in a game, each object has a fixed boundary - space it occupies
+if it overlaps with another obj's boundary, then collision occurs
+we can also check if the obj collides with a coordinate
+'''
